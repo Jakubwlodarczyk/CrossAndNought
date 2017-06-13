@@ -2,12 +2,13 @@ package model;
 
 public class Board {
 
-    private Cell[][] cells = new Cell[3][3];
+    private Cell[][] cells;
 
-    Board() {
+    public Board() {
+        this.cells = new Cell[3][3];
     }
 
-    void init() {
+    public void init() {
         cells[0][0] = new Cell(1,1);
         cells[0][1] = new Cell(1,2);
         cells[0][2] = new Cell(1,3);
@@ -19,15 +20,77 @@ public class Board {
         cells[2][2] = new Cell(3,3);
     }
 
-    public boolean isDraw() {
+    boolean isDraw() {
+        if (!hasWon()) {
+            for (Cell[] cellList : cells) {
+                for (Cell cell : cellList) {
+                    if (cell.getContent().equals(Seed.EMPTY)) {
+                        return false;
+                    }
+                }
+            }
+        }
         return true;
     }
 
-    public boolean hasWon(Seed seed, int row, int col) {
-        return true;
+    boolean hasWon() {
+        return seedsInRowAreSame() ||
+                seedsInColAreSame() ||
+                seedsOnLeftBevelAreSame() ||
+                seedsOnRightBevelAreSame();
+    }
+
+    private boolean seedsInColAreSame() {
+        int rowIndex = 0;
+        int firstColumn = 0;
+        int secondColumn = 1;
+        int thirdColumn = 2;
+        for (Cell[] cell : cells) {
+            if (cells[firstColumn][rowIndex].getContent().equals(Seed.CROSS) &&
+                    cells[secondColumn][rowIndex].getContent().equals(Seed.CROSS) &&
+                    cells[thirdColumn][rowIndex].getContent().equals(Seed.CROSS) ||
+                    cells[firstColumn][rowIndex].getContent().equals(Seed.NOUGHT) &&
+                            cells[secondColumn][rowIndex].getContent().equals(Seed.NOUGHT) &&
+                            cells[thirdColumn][rowIndex].getContent().equals(Seed.NOUGHT)) {
+                return true;
+            }
+            rowIndex++;
+        }
+        return false;
+    }
+
+    private boolean seedsInRowAreSame() {
+        for (Cell[] row: this.cells) {
+            if (row[0].getContent().equals(Seed.CROSS) &&
+                    row[1].getContent().equals(Seed.CROSS) &&
+                    row[2].getContent().equals(Seed.CROSS) ||
+                    row[0].getContent().equals(Seed.NOUGHT) &&
+                            row[1].getContent().equals(Seed.NOUGHT) &&
+                            row[2].getContent().equals(Seed.NOUGHT)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean seedsOnLeftBevelAreSame() {
+        return this.cells[0][0].getContent().equals(Seed.CROSS) &&
+                this.cells[1][1].getContent().equals(Seed.CROSS) &&
+                this.cells[2][2].getContent().equals(Seed.CROSS);
+    }
+
+    private boolean seedsOnRightBevelAreSame() {
+        return this.cells[2][2].getContent().equals(Seed.CROSS) &&
+                this.cells[1][1].getContent().equals(Seed.CROSS) &&
+                this.cells[0][0].getContent().equals(Seed.CROSS);
     }
 
     public Cell[][] getCells() {
-        return cells;
+        return this.cells;
     }
+
+    void setCells(Cell[][] cells) {
+        this.cells = cells;
+    }
+
 }

@@ -5,17 +5,17 @@ public class Cell {
     private int row;
     private int col;
 
-    public void setContent(Seed content) {
+    void setContent(Seed content) {
         this.content = content;
     }
 
-    public Cell(int row, int col) {
+    Cell(int row, int col) {
         this.row = row;
         this.col = col;
         this.content = Seed.EMPTY;
     }
 
-    public void clear() {
+    void clear() {
         this.content = Seed.EMPTY;
     }
 
@@ -29,5 +29,9 @@ public class Cell {
                 return " ";
         }
         return null;
+    }
+
+    Seed getContent() {
+        return content;
     }
 }
