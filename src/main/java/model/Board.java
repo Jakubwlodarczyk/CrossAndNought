@@ -2,12 +2,13 @@ package model;
 
 public class Board {
 
-    private Cell[][] cells = new Cell[3][3];
+    private Cell[][] cells;
 
-    Board() {
+    public Board() {
+        this.cells = new Cell[3][3];
     }
 
-    void init() {
+    public void init() {
         cells[0][0] = new Cell(1,1);
         cells[0][1] = new Cell(1,2);
         cells[0][2] = new Cell(1,3);
@@ -23,11 +24,16 @@ public class Board {
         return true;
     }
 
-    public boolean hasWon(Seed seed, int row, int col) {
+    public boolean hasWon() {
         return true;
     }
 
     public Cell[][] getCells() {
-        return cells;
+        return this.cells;
     }
+
+    public void setCells(Cell[][] cells) {
+        this.cells = cells;
+    }
+
 }
