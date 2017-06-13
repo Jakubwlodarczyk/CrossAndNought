@@ -20,7 +20,7 @@ public class Board {
         cells[2][2] = new Cell(3,3);
     }
 
-    public boolean isDraw() {
+    boolean isDraw() {
         return true;
     }
 
