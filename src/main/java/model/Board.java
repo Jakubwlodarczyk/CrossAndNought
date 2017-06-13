@@ -21,6 +21,15 @@ public class Board {
     }
 
     boolean isDraw() {
+        if (!hasWon()) {
+            for (Cell[] cellList : cells) {
+                for (Cell cell : cellList) {
+                    if (cell.getContent().equals(Seed.EMPTY)) {
+                        return false;
+                    }
+                }
+            }
+        }
         return true;
     }
 
