@@ -70,4 +70,13 @@ class BoardTest {
         board.getCells()[2][2].setContent(Seed.NOUGHT);
         assertEquals(true, board.isDraw());
     }
+
+    @Test
+    void testGetCellsMethodReturnValidCellsValue() {
+        for (Cell[] cells: board.getCells()){
+            assertEquals(Seed.EMPTY, cells[0].getContent());
+            assertEquals(Seed.EMPTY, cells[1].getContent());
+            assertEquals(Seed.EMPTY, cells[2].getContent());
+        }
+    }
 }

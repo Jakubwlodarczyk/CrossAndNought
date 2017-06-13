@@ -1,5 +1,9 @@
 package model;
 
+import java.util.Random;
+
+import static model.GameState.*;
+
 public class Game {
     private Board board = new Board();
     private GameState currentState;
@@ -10,12 +14,35 @@ public class Game {
 
     public void initGame() {
         board.init();
+        setCurrentPlayer(chooseFirstPlayer());
+        setCurrentState(PLAYING);
+    }
+
+    private static Seed chooseFirstPlayer() {
+        Random random = new Random();
+        return (random.nextInt()%2 == 0)?Seed.CROSS:Seed.NOUGHT;
     }
 
     public void updateGameState(Seed seed, int row, int col) {
     }
 
+    public GameState getCurrentState() {
+        return currentState;
+    }
+
+    public Seed getCurrentPlayer() {
+        return currentPlayer;
+    }
+
     public Board getBoard() {
         return board;
+    }
+
+    public void setCurrentState(GameState currentState) {
+        this.currentState = currentState;
+    }
+
+    public void setCurrentPlayer(Seed currentPlayer) {
+        this.currentPlayer = currentPlayer;
     }
 }
