@@ -26,11 +26,6 @@ class BoardTest {
     }
 
     @Test
-    void dupa(){
-        System.out.println(board.getCells()[0][0]);
-    }
-
-    @Test
     void testHasWonMethodReturnTrueWhenSeedsInRowAreSame() {
         board.getCells()[0][0].setContent(Seed.CROSS);
         board.getCells()[0][1].setContent(Seed.CROSS);

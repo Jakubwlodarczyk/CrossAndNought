@@ -25,9 +25,53 @@ public class Board {
     }
 
     public boolean hasWon() {
-        return true;
+        return seedsInColAreSame();
     }
 
+    private boolean seedsInColAreSame() {
+        int rowIndex = 0;
+        for (int index=0; index<cells.length; index++) {
+            if (cells[0][rowIndex].getContent().equals(Seed.CROSS) &&
+                    cells[1][rowIndex].getContent().equals(Seed.CROSS) &&
+                    cells[2][rowIndex].getContent().equals(Seed.CROSS) ||
+                    cells[0][rowIndex].getContent().equals(Seed.NOUGHT) &&
+                            cells[1][rowIndex].getContent().equals(Seed.NOUGHT) &&
+                            cells[2][rowIndex].getContent().equals(Seed.NOUGHT)) {
+                return true;
+            }
+            rowIndex++;
+        }
+        return false;
+    }
+
+    private boolean seedsInRowAreSame() {
+        for (Cell[] row: this.cells) {
+            if (row[0].getContent().equals(Seed.CROSS) &&
+                    row[1].getContent().equals(Seed.CROSS) &&
+                    row[2].getContent().equals(Seed.CROSS) ||
+                    row[0].getContent().equals(Seed.NOUGHT) &&
+                            row[1].getContent().equals(Seed.NOUGHT) &&
+                            row[2].getContent().equals(Seed.NOUGHT)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+//    private boolean seedsOnLeftBevelAreSame() {
+//
+//    }
+//
+//    private boolean seedsOnRightBevelAreSame() {
+//
+//    }
+
+
+
+//    SeedsInCol
+//             SeedsinRow
+//            SeedsOnLeftBevel
+//    SeedsOnRightBevel
     public Cell[][] getCells() {
         return this.cells;
     }

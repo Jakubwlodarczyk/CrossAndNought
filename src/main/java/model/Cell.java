@@ -30,4 +30,8 @@ public class Cell {
         }
         return null;
     }
+
+    public Seed getContent() {
+        return content;
+    }
 }
