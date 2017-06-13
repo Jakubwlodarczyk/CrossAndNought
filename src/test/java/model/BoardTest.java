@@ -70,21 +70,4 @@ class BoardTest {
         board.getCells()[2][2].setContent(Seed.NOUGHT);
         assertEquals(true, board.isDraw());
     }
-
-//    @Test
-//    void testInitMethodInitializeBoardCellsArrayProperly() {
-//        Cell[][] testCells = new Cell[3][3];
-//        Board testBoard = new Board();
-//        cells[0][0] = new Cell(1,1);
-//        cells[0][1] = new Cell(1,2);
-//        cells[0][2] = new Cell(1,3);
-//        cells[1][0] = new Cell(2,1);
-//        cells[1][1] = new Cell(2,2);
-//        cells[1][2] = new Cell(2,3);
-//        cells[2][0] = new Cell(3,1);
-//        cells[2][1] = new Cell(3,2);
-//        cells[2][2] = new Cell(3,3);
-//        testBoard.init();
-//        assertEquals(testCells, testBoard.getCells());
-//    }
 }
