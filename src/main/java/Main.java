@@ -1,9 +1,9 @@
-import model.Board;
+import controller.GameController;
 
 public class Main {
 
     public static void main(String[] args) {
-        Board board = new Board();
-        board.init();
+        GameController gameController = new GameController();
+        gameController.startGame();
     }
 }
