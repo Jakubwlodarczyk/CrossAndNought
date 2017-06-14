@@ -21,12 +21,27 @@ public class GameController {
             Integer col = DisplayGame.getPositiveIntInput(game.getCurrentPlayer(), "enter your move (col[1-3]): ");
             if (checkIfSeedIsEmpty(row, col)) {
                 setCellContent(row, col, game.getCurrentPlayer());
+            } else {
+                DisplayGame.displayMessage();
+                continue;
             }
-            game.getBoard().hasWon();
-            game.getBoard().isDraw();
+            if (game.getBoard().hasWon()) {
+                if (game.getCurrentPlayer().equals(Seed.CROSS)) {
+                    game.setCurrentState(GameState.CROSS_WON);
+                } else {
+                    game.setCurrentState(GameState.NOUGHT_WON);
+                }
+                break;
+            }
+            if (game.getBoard().isDraw()) {
+                game.setCurrentPlayer(Seed.EMPTY);
+                game.setCurrentState(GameState.DRAW);
+                break;
+            }
             game.togglePlayer();
             DisplayGame.clearScreen();
             }
+        DisplayGame.displayGameResultOfGame(game.getCurrentPlayer());
         }
 
     private boolean checkIfSeedIsEmpty(int row, int col) {

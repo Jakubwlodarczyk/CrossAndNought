@@ -45,10 +45,23 @@ public class DisplayGame {
         }
     }
 
-
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    public static void displayMessage() {
+        System.out.println("Chose another place sir!");
+    }
+
+    public static void displayGameResultOfGame(Seed player){
+        if (player.equals(Seed.CROSS)){
+            System.out.println("Game finished.'X' Won!");
+        } else if(player.equals(Seed.NOUGHT)){
+            System.out.println("Game finished.'O' Won!");
+        }else {
+            System.out.println("Game finished. It's a draw!");
+        }
     }
 }
 

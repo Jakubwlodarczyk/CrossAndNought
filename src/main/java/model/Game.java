@@ -43,11 +43,11 @@ public class Game {
         return board;
     }
 
-    void setCurrentState(GameState currentState) {
+    public void setCurrentState(GameState currentState) {
         this.currentState = currentState;
     }
 
-    void setCurrentPlayer(Seed currentPlayer) {
+    public void setCurrentPlayer(Seed currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
 }
