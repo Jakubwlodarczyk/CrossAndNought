@@ -17,8 +17,8 @@ public class GameController {
     public void startGame() {
         while (game.getCurrentState().equals(GameState.PLAYING)) {
             DisplayGame.displayBoard(game.getBoard());
-            Integer row = DisplayGame.userInput(game.getCurrentPlayer(), "enter your move (row[1-3]): ");
-            Integer col = DisplayGame.userInput(game.getCurrentPlayer(), "enter your move (col[1-3]): ");
+            Integer row = DisplayGame.getPositiveIntInput(game.getCurrentPlayer(), "enter your move (row[1-3]): ");
+            Integer col = DisplayGame.getPositiveIntInput(game.getCurrentPlayer(), "enter your move (col[1-3]): ");
             if (checkIfSeedIsEmpty(row, col)) {
                 setCellContent(row, col, game.getCurrentPlayer());
             }
