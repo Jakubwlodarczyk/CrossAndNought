@@ -13,11 +13,11 @@ public class Board {
     int secondColumn = 1;
     int thirdColumn = 2;
 
-    public Board() {
+    Board() {
         this.cells = new Cell[3][3];
     }
 
-    public void init() {
+    void init() {
         cells[row1][col1] = new Cell(1,1);
         cells[row1][col2] = new Cell(1,2);
         cells[row1][col3] = new Cell(1,3);
