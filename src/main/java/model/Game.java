@@ -26,6 +26,14 @@ public class Game {
     public void updateGameState(Seed seed, int row, int col) {
     }
 
+    public void togglePlayer() {
+        if (this.currentPlayer.equals(Seed.CROSS)){
+            this.currentPlayer = Seed.NOUGHT;
+        } else {
+            this.currentPlayer = Seed.CROSS;
+        }
+    }
+
     public GameState getCurrentState() {
         return currentState;
     }

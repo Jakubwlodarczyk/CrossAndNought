@@ -4,7 +4,10 @@ import model.Board;
 import model.Cell;
 import model.Seed;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Scanner.*;
 
 
 public class DisplayGame {
@@ -25,11 +28,15 @@ public class DisplayGame {
         System.out.println("Player " + firstPlayer.toString() + " will be the first player this round!");
     }
 
-    public static void userInput(Seed currentPlayer) {
+    public static Integer userInput(Seed currentPlayer, String info) {
         Scanner reader = new Scanner(System.in);
-        System.out.println("Player " + currentPlayer.toString() + " enter your move (row[1-3], column[1-3]): " );
-        int userInput = reader.nextInt();
-        System.out.println(userInput);
+        System.out.println("Player "+currentPlayer.toString()+" "+info);
+        return reader.nextInt();
+    }
+
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
 

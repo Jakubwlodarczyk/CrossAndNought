@@ -29,7 +29,7 @@ public class Board {
         cells[row3][col3] = new Cell(3,3);
     }
 
-    boolean isDraw() {
+    public boolean isDraw() {
         if (!hasWon()) {
             for (Cell[] cellList : cells) {
                 for (Cell cell : cellList) {
@@ -42,7 +42,7 @@ public class Board {
         return true;
     }
 
-    boolean hasWon() {
+    public boolean hasWon() {
         return seedsInRowAreSame() ||
                 seedsInColAreSame() ||
                 seedsOnLeftBevelAreSame() ||

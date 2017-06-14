@@ -5,7 +5,7 @@ public class Cell {
     private int row;
     private int col;
 
-    void setContent(Seed content) {
+    public void setContent(Seed content) {
         this.content = content;
     }
 
