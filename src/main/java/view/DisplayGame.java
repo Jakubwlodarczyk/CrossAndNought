@@ -2,6 +2,9 @@ package view;
 
 import model.Board;
 import model.Cell;
+import model.Seed;
+
+import java.util.Scanner;
 
 
 public class DisplayGame {
@@ -15,6 +18,18 @@ public class DisplayGame {
             }
             line++;
         }
+    }
+
+    public static void printWelcomeInfo(Seed firstPlayer) {
+        System.out.println("...:: CROSS and NOUGHT ::...");
+        System.out.println("Player " + firstPlayer.toString() + " will be the first player this round!");
+    }
+
+    public static void userInput(Seed currentPlayer) {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Player " + currentPlayer.toString() + " enter your move (row[1-3], column[1-3]): " );
+        int userInput = reader.nextInt();
+        System.out.println(userInput);
     }
 }
 
