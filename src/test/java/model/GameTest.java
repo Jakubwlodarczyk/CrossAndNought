@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
-    Game game;
+    private Game game;
     @BeforeEach
     void setup(){
         game = new Game();
@@ -36,5 +36,24 @@ class GameTest {
     void testInitMethodSetsCurrentStateAttributeAsPlaying() {
         game.initGame();
         assertEquals(game.getCurrentState(), GameState.PLAYING);
+    }
+
+    @Test
+    void testTogglePlayerChangeCurrentPlayer() {
+        game.setCurrentPlayer(Seed.CROSS);
+        game.togglePlayer();
+        assertEquals(Seed.NOUGHT, game.getCurrentPlayer());
+    }
+
+    @Test
+    void testSetCurrentPlayerSetsProperValue() {
+        game.setCurrentPlayer(Seed.NOUGHT);
+        assertEquals(Seed.NOUGHT, game.getCurrentPlayer());
+    }
+
+    @Test
+    void testSetCurrentStateSetsProperValue() {
+        game.setCurrentState(GameState.CROSS_WON);
+        assertEquals(GameState.CROSS_WON, game.getCurrentState());
     }
 }
