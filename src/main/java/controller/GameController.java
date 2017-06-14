@@ -8,17 +8,19 @@ import view.DisplayGame;
 public class GameController {
     private Game game = new Game();
 
-    public void startGame() {
+    public void initGame() {
         game.initGame();
         DisplayGame.clearScreen();
         DisplayGame.printWelcomeInfo(game.getCurrentPlayer());
+    }
 
+    public void startGame() {
         while (game.getCurrentState().equals(GameState.PLAYING)) {
             DisplayGame.displayBoard(game.getBoard());
             Integer row = DisplayGame.userInput(game.getCurrentPlayer(), "enter your move (row[1-3]): ");
             Integer col = DisplayGame.userInput(game.getCurrentPlayer(), "enter your move (col[1-3]): ");
             if (checkIfSeedIsEmpty(row, col)) {
-                setCellContent(row,col,game.getCurrentPlayer());
+                setCellContent(row, col, game.getCurrentPlayer());
             }
             game.getBoard().hasWon();
             game.getBoard().isDraw();
