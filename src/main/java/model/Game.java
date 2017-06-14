@@ -26,11 +26,11 @@ public class Game {
     public void updateGameState(Seed seed, int row, int col) {
     }
 
-    public GameState getCurrentState() {
+    GameState getCurrentState() {
         return currentState;
     }
 
-    public Seed getCurrentPlayer() {
+    Seed getCurrentPlayer() {
         return currentPlayer;
     }
 
@@ -38,11 +38,11 @@ public class Game {
         return board;
     }
 
-    public void setCurrentState(GameState currentState) {
+    private void setCurrentState(GameState currentState) {
         this.currentState = currentState;
     }
 
-    public void setCurrentPlayer(Seed currentPlayer) {
+    private void setCurrentPlayer(Seed currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
 }
