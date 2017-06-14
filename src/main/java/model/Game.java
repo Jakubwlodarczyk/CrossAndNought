@@ -23,9 +23,6 @@ public class Game {
         return (random.nextInt()%2 == 0)?Seed.CROSS:Seed.NOUGHT;
     }
 
-    public void updateGameState(Seed seed, int row, int col) {
-    }
-
     public void togglePlayer() {
         if (this.currentPlayer.equals(Seed.CROSS)){
             this.currentPlayer = Seed.NOUGHT;
@@ -46,11 +43,11 @@ public class Game {
         return board;
     }
 
-    private void setCurrentState(GameState currentState) {
+    void setCurrentState(GameState currentState) {
         this.currentState = currentState;
     }
 
-    private void setCurrentPlayer(Seed currentPlayer) {
+    void setCurrentPlayer(Seed currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
 }
