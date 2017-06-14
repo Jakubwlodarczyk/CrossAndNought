@@ -31,7 +31,7 @@ public class Cell {
         return null;
     }
 
-    Seed getContent() {
+    public Seed getContent() {
         return content;
     }
 }
