@@ -26,11 +26,11 @@ public class Game {
     public void updateGameState(Seed seed, int row, int col) {
     }
 
-    GameState getCurrentState() {
+    public GameState getCurrentState() {
         return currentState;
     }
 
-    Seed getCurrentPlayer() {
+    public Seed getCurrentPlayer() {
         return currentPlayer;
     }
 
