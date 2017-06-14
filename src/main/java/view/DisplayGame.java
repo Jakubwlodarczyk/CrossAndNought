@@ -24,11 +24,27 @@ public class DisplayGame {
         System.out.println("Player " + firstPlayer.toString() + " will be the first player this round!");
     }
 
-    public static Integer userInput(Seed currentPlayer, String info) {
-        Scanner reader = new Scanner(System.in);
-        System.out.println("Player "+currentPlayer.toString()+" "+info);
-        return reader.nextInt();
+    public static int getPositiveIntInput(Seed currentPlayer, String info) {
+        int number;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Player "+currentPlayer.toString()+" "+info);
+        while (true) {
+            while (!sc.hasNextInt()) {
+                System.out.print("Input must be an number!" +
+                        "\n" + "Player "+currentPlayer.toString()+" "+info);
+                sc.next();
+            }
+            number = sc.nextInt();
+            sc.nextLine();
+            if (number >= 1 && number <= 3) {
+                return number;
+            } else {
+                System.out.print("Number must be between 1 and 3" +
+                        "\n" + "Player "+currentPlayer.toString()+" "+info);
+            }
+        }
     }
+
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
