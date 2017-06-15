@@ -39,9 +39,9 @@ class GameTest {
     }
 
     @Test
-    void testTogglePlayerChangeCurrentPlayer() {
+    void testSwitchPlayerChangeCurrentPlayer() {
         game.setCurrentPlayer(Seed.CROSS);
-        game.togglePlayer();
+        game.switchPlayer();
         assertEquals(Seed.NOUGHT, game.getCurrentPlayer());
     }
 
