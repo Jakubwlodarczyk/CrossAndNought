@@ -1,6 +1,7 @@
 package model;
 
 public class Cell {
+
     private Seed content;
     private int row;
     private int col;
